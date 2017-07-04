@@ -46,4 +46,8 @@ Geschieht dies nicht nach ein paar Sekunden, ist im Browser die Seite http://192
 
 **Übertragung alle x Minuten**: Sende-Intervall. Zwischen den Übertragungen verbleibt der Wemos D1 im DeepSleep Modus, um Energie zu sparen. Je größer die Sendeabstände, desto länger ist die Lebensdauer der Batterien
 
+![KonfigurationBeispiel](https://github.com/jp112sdl/WemosD1_CCU_DHT22/blob/master/Images/Konfiguration_Beispiel.png)
+
+**Beispiel**
+
 **Nach dem "Speichern" startet der Wemos neu und es findet eine Übertragung statt. In der HomeMatic WebUI sollten nun Werte bei dem Temperatursensor zu sehen sein**
