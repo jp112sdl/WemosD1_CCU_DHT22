@@ -16,7 +16,7 @@ Wenn alles nach obigem Bild verdrahtet wurde, kann das Image ```WemosD1_CCU_DHT2
 
 #### Vorgehensweise:
 1. Voraussetzungen:
-  - CH340-Treiber installieren
+  - CH340-Treiber installieren ([Download-Seite des Herstellers](https://wiki.wemos.cc/downloads))
   - esptool 
     - für [Windows](https://github.com/thekikz/esptool/blob/master/esptool.exe) herunterladen
     - oder plattformunabhängig das Python Package [esptool](https://pypi.python.org/pypi/esptool/)
