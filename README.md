@@ -3,18 +3,34 @@
 ## Folgende Bauteile werden benötigt:
 - Wemos D1 Mini
 - DHT22 oder AM2302 Sensor
-- 1 Taster
+- 1 Taster (nicht dauerhaft, nur um bei erster Inbetriebnahme / Änderungen den Konfigurationsmodus zu starten)
 - Stromversorgung (z.B. ein Batteriehalter mit 3x AA Batterien)
 
-![Anschlussplan](https://github.com/jp112sdl/WemosD1_CCU_DHT22/blob/master/Images/Anschlussplan.png)
+![Anschlussplan](Images/Anschlussplan.png)
 
+
+## Flashen
 Wenn alles nach obigem Bild verdrahtet wurde, kann das Image ```WemosD1_CCU_DHT22.ino.d1_mini.bin``` auf den Wemos geflasht werden.
+
+**Hinweis: Der Flash-Vorgang funktioniert nur ohne Brücke zwischen D0/RST. Diese ist daher bestenfalls erst nach dem Flashen einzulöten** 
+
+#### Vorgehensweise:
+1. Voraussetzungen:
+  - CH340-Treiber installieren
+  - esptool 
+    - für [Windows](https://github.com/thekikz/esptool/blob/master/esptool.exe) herunterladen
+    - oder plattformunabhängig das Python Package [esptool](https://pypi.python.org/pypi/esptool/)
+2. WemosD1 mit einem microUSB-Kabel an den PC anschließen
+3. Bezeichnung des neuen COM-Ports im Gerätemanager notieren (z.B. COM5)
+4. Flash-Vorgang durchführen: 
+
+  ```esptool.exe -vv -cd nodemcu -cb 921600 -cp COM5 -ca 0x00000 -cf WemosD1_CCU_DHT22.ino.d1_mini.bin```
 
 ## Voraussetzungen: 
 - installiertes CUxD-Addon auf der CCU und ein Thermostat-Device 
-![NewCUXDDevice](https://github.com/jp112sdl/WemosD1_CCU_DHT22/blob/master/Images/CUxD_Device_erzeugen.png)
+![NewCUXDDevice](Images/CUxD_Device_erzeugen.png)
 mit folgenden Einstellungen in der WebUI:
-![NewCUXDDevice](https://github.com/jp112sdl/WemosD1_CCU_DHT22/blob/master/Images/CCU_Geraeteeinstellung.png)
+![NewCUXDDevice](Images/CCU_Geraeteeinstellung.png)
 
 ## Konfiguration des Wemos D1
 Um den Konfigurationsmodus zu starten, muss der Wemos D1 mit gedrückt gehaltenem Taster gestartet werden.
@@ -30,11 +46,11 @@ Nachdem man sich mit diesem verbunden hat, öffnet sich automatisch das Konfigur
 
 Geschieht dies nicht nach ein paar Sekunden, ist im Browser die Seite http://192.168.4.1 aufzurufen.
 
-![PortalStart](https://github.com/jp112sdl/WemosD1_CCU_DHT22/blob/master/Images/Konfiguration_Startseite.png)
+![PortalStart](Images/Konfiguration_Startseite.png)
 
 **WLAN konfigurieren auswählen**
 
-![KonfigurationLeer](https://github.com/jp112sdl/WemosD1_CCU_DHT22/blob/master/Images/Konfiguration_Leer.png)
+![KonfigurationLeer](Images/Konfiguration_Leer.png)
 
 **SSID**: WLAN aus der Liste auswählen, oder SSID manuell eingeben
 
@@ -46,8 +62,11 @@ Geschieht dies nicht nach ein paar Sekunden, ist im Browser die Seite http://192
 
 **Übertragung alle x Minuten**: Sende-Intervall. Zwischen den Übertragungen verbleibt der Wemos D1 im DeepSleep Modus, um Energie zu sparen. Je größer die Sendeabstände, desto länger ist die Lebensdauer der Batterien
 
-![KonfigurationBeispiel](https://github.com/jp112sdl/WemosD1_CCU_DHT22/blob/master/Images/Konfiguration_Beispiel.png)
+![KonfigurationBeispiel](Images/Konfiguration_Beispiel.png)
 
 **Beispiel**
 
-**Nach dem "Speichern" startet der Wemos neu und es findet eine Übertragung statt. In der HomeMatic WebUI sollten nun Werte bei dem Temperatursensor zu sehen sein**
+#### Nach dem "Speichern" startet der Wemos neu und es findet eine Übertragung der Werte an die CCU statt. In der HomeMatic WebUI sollten nun Werte bei dem Temperatursensor (in der WebUI unter "Status und Bedienung" -> "Geräte") zu sehen sein
+![GeraetBeispiel](Images/Geraet_WebUI_Beispiel.png)
+
+
