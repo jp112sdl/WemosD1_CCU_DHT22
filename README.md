@@ -17,9 +17,7 @@ Wenn alles nach obigem Bild verdrahtet wurde, kann das Image ```WemosD1_CCU_DHT2
 #### Vorgehensweise:
 1. Voraussetzungen:
   - CH340-Treiber installieren ([Download-Seite des Herstellers](https://wiki.wemos.cc/downloads))
-  - esptool 
-    - für [Windows](https://github.com/thekikz/esptool/blob/master/esptool.exe) herunterladen
-    - oder plattformunabhängig das Python Package [esptool](https://pypi.python.org/pypi/esptool/)
+  - [esptool](https://github.com/igrr/esptool-ck/releases) herunterladen
 2. WemosD1 mit einem microUSB-Kabel an den PC anschließen
 3. Bezeichnung des neuen COM-Ports im Gerätemanager notieren (z.B. COM5)
 4. Flash-Vorgang durchführen: 
