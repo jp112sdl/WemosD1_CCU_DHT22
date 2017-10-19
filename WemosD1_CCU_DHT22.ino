@@ -120,7 +120,7 @@ bool doWifiConnect() {
 
   char cuxddevicechar[50];
   cuxddevice.toCharArray(cuxddevicechar, 50);
-  WiFiManagerParameter custom_cuxddevicename("cuxddevice", "CUxD Device Seriennumer", cuxddevicechar, 50);
+  WiFiManagerParameter custom_cuxddevicename("cuxddevice", "CUxD Device Seriennummer", cuxddevicechar, 50);
   WiFiManagerParameter custom_sleeptime("sleeptime", "&Uuml;bertragung alle x Minuten", sleepTimeMin, 4);
 
   WiFiManagerParameter custom_ip("custom_ip", "IP-Adresse", "", 16);
